@@ -1,170 +1,81 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    overflow: hidden;
+  margin: 0;
 }
 
-/* Page layout */
+/* PAGES */
 .page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
-/* HOME PAGE */
-#home {
-    background: linear-gradient(45deg, #b71c1c, #d32f2f, #f44336);
+/* HOME PAGE (RED) */
+.home {
+  background: linear-gradient(45deg, #8e0000, #d32f2f);
 }
 
 .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    color: white;
-    position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* simple blood drop shape */
 .blood-drop {
-    width: 150px;
-    height: 150px;
-    background: #ff1744;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    margin-bottom: 30px;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    text-shadow: 4px 4px 10px rgba(0,0,0,0.6);
-    letter-spacing: 8px;
-    margin-bottom: 40px;
+  width: 120px;
+  height: 120px;
+  background: #b71c1c;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  margin-bottom: 20px;
 }
 
 .hero button {
-    padding: 15px 35px;
-    font-size: 18px;
-    margin: 10px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    background: #ffeb3b;
-    color: #b71c1c;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  padding: 15px;
+  width: 70%;
+  margin: 10px;
+  border-radius: 30px;
+  border: none;
 }
 
-.hero button:hover {
-    background: #fdd835;
-    transform: scale(1.03);
+/* NAVY BLUE PAGES */
+.navy {
+  background: #0a1a33;
 }
 
-/* Common container for inner pages */
-#search, #register {
-    background: linear-gradient(to right, #ff6b6b, #4ecdc4);
-    padding: 40px 15px;
-}
-
+/* CARD */
 .container {
-    max-width: 500px;
-    margin: 0 auto;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    text-align: center;
+  max-width: 420px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
 }
 
-.container h2 {
-    color: #b71c1c;
-    margin-bottom: 20px;
+input, select, button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
 }
 
-/* Form styles */
-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
+.secondary {
+  background: #ccc;
 }
 
-select,
-input,
-button {
-    width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 2px solid #4ecdc4;
-}
-
-button {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #ff5252;
-}
-
-button.secondary {
-    background: #4ecdc4;
-}
-
-button.secondary:hover {
-    background: #26a69a;
-}
-
-.form-group {
-    margin-bottom: 10px;
-}
-
-/* Results & messages */
-#result {
-    margin-top: 20px;
-    max-height: 250px;
-    overflow-y: auto;
-}
-
-.donor {
-    background: #e8f5e8;
-    padding: 12px 15px;
-    margin: 8px 0;
-    border-radius: 10px;
-    border-left: 5px solid #4ecdc4;
-    text-align: left;
-    font-size: 15px;
-}
-
-.error {
-    color: #b71c1c;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.success {
-    color: #2e7d32;
-    font-weight: bold;
-    margin-top: 10px;
+.notify-text {
+  color: #0a1a33;
+  font-weight: bold;
 }

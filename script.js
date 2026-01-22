@@ -1,76 +1,43 @@
-// initial donors (you can change these)
-let donors = [
-    { name: "Rajath Shetty", phone: "9876543210", group: "A+" },
-    { name: "Priya R", phone: "8765432109", group: "B+" },
-    { name: "Amit K", phone: "7654321098", group: "O-" }
-];
-
-// navigation
-function goToSearch() {
-    showPage("search");
+function show(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
 }
 
-function goToRegister() {
-    showPage("register");
+function goHome() { show("home"); }
+function goToFind() { show("find"); }
+function goToRegister() { show("register"); }
+
+function submitRequest() {
+  const mobile = document.getElementById("reqMobile").value;
+  if (!/^[0-9]{10}$/.test(mobile)) {
+    alert("Mobile number must be exactly 10 digits");
+    return;
+  }
+  show("otp");
 }
 
-function goHome() {
-    showPage("home");
-    document.getElementById("result").innerHTML = "";
-    document.getElementById("registerMessage").innerHTML = "";
+function verifyOtp() {
+  if (document.getElementById("otpInput").value === "1234") {
+    show("success");
+  } else {
+    alert("Wrong OTP");
+  }
 }
 
-function showPage(id) {
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("search").classList.add("hidden");
-    document.getElementById("register").classList.add("hidden");
-    document.getElementById(id).classList.remove("hidden");
-}
+function submitDonor() {
+  const age = document.getElementById("dage").value;
+  const mobile = document.getElementById("dmobile").value;
 
-// search donors
-function showDonors() {
-    const group = document.getElementById("searchGroup").value;
-    const result = document.getElementById("result");
+  if (age < 18) {
+    alert("Age must be 18 or above");
+    return;
+  }
 
-    if (!group) {
-        result.innerHTML = '<div class="error">Please select a blood group.</div>';
-        return;
-    }
+  if (!/^[0-9]{10}$/.test(mobile)) {
+    alert("Mobile number must be exactly 10 digits");
+    return;
+  }
 
-    const filtered = donors.filter(d => d.group === group);
-
-    if (filtered.length === 0) {
-        result.innerHTML = '<div class="error">No donors found for this blood group.</div>';
-        return;
-    }
-
-    result.innerHTML = filtered.map(d =>
-        `<div class="donor">
-            <div>Name: ${d.name}</div>
-            <div>Phone: ${d.phone}</div>
-            <div>Blood Group: ${d.group}</div>
-        </div>`
-    ).join("");
-}
-
-// register new donor
-function registerDonor() {
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const group = document.getElementById("regGroup").value;
-    const msg = document.getElementById("registerMessage");
-
-    if (!name || !phone || !group) {
-        msg.innerHTML = '<div class="error">Please fill all fields.</div>';
-        return;
-    }
-
-    donors.push({ name, phone, group });
-
-    // clear fields
-    document.getElementById("name").value = "";
-    document.getElementById("phone").value = "";
-    document.getElementById("regGroup").value = "";
-
-    msg.innerHTML = '<div class="success">Registration successful! You are now in the donor list.</div>';
+  alert("Registration Successful");
+  goHome();
 }
